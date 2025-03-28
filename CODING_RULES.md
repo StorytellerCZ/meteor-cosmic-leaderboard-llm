@@ -1,0 +1,203 @@
+# Coding Rules for MeteorJS 3.2 + React 19 Leaderboard Application
+
+*Last updated: March 28, 2025*
+
+This document outlines the coding standards and best practices for our Leaderboard application built with MeteorJS 3.2 and React 19.
+
+## Project Structure and Architecture
+
+1. **Clear Component Hierarchy**
+   - Organize React components in a logical hierarchy
+   - Separate smart (container) components from presentational components
+   - Container components handle data and state, presentational components handle UI
+
+2. **Modular Organization**
+   - Keep related code together in feature-based modules within the `/imports` directory
+   - Group related components, methods, and collections in feature folders
+   - Example structure:
+     ```
+     /imports
+       /api
+         /players
+           players.js (collection)
+           methods.js (Meteor methods)
+           publications.js (Meteor publications)
+       /ui
+         /components
+           /PlayersList
+           /AddPlayerForm
+           /LeaderboardHeader
+     ```
+
+3. **Separation of Concerns**
+   - UI components in `/imports/ui`
+   - Data layer (collections, methods) in `/imports/api`
+   - Server-only code in `/server`
+   - Client-only code in `/client`
+
+4. **Meteor Collections**
+   - Define MongoDB collections in `/imports/api` with clear schemas and validation
+   - Use SimpleSchema for validation when appropriate
+   - Implement proper indexes for frequently queried fields
+
+## Code Style and Quality
+
+1. **Consistent Naming Conventions**
+   - Use PascalCase for React components (`PlayerCard.jsx`)
+   - Use camelCase for variables, functions, and instances (`addPlayer`, `currentScore`)
+   - Use UPPER_SNAKE_CASE for constants (`MAX_PLAYERS`, `DEFAULT_SCORE`)
+   - Use kebab-case for CSS classes (`player-card`, `score-value`)
+
+2. **Component Structure**
+   - One component per file
+   - Export components as named exports
+   - Use functional components with hooks
+   - Example:
+     ```jsx
+     import React from 'react';
+     
+     export const PlayerCard = ({ player, onVote }) => {
+       return (
+         <div className="player-card">
+           <h3>{player.name}</h3>
+           <p>Score: {player.score}</p>
+           <button onClick={() => onVote(player._id)}>Vote</button>
+         </div>
+       );
+     };
+     ```
+
+3. **State Management**
+   - Use React hooks (useState, useEffect) for component state
+   - Leverage Meteor's reactive data with `useTracker`, `useSubscribe` and `useFind` hooks
+   - Minimize prop drilling with context where appropriate
+   - Keep state as close as possible to where it's used
+   - Use Meteor methods to send data to server
+
+4. **Code Documentation**
+   - Document component props with JSDoc
+   - Add comments for complex logic
+   - Include README files for major features
+   - Example:
+     ```jsx
+     /**
+      * PlayersList component displays all players sorted by score
+      * @param {Object} props - Component props
+      * @param {boolean} props.showRank - Whether to show player rankings
+      * @param {Function} props.onVote - Callback when a player is voted for
+      */
+     export const PlayersList = ({ showRank, onVote }) => {
+       // Component implementation
+     };
+     ```
+
+## Performance and Best Practices
+
+1. **Optimized Meteor Publications**
+   - Use fields projection to limit data transfer
+   - Implement proper pagination for lists
+   - Use MongoDB indexes for frequently queried fields
+   - Example:
+     ```js
+     Meteor.publish('topPlayers', function(limit = 10) {
+       return Players.find(
+         {}, 
+         {
+           sort: { score: -1 },
+           limit,
+           fields: { name: 1, score: 1 }
+         }
+       );
+     });
+     ```
+
+2. **React Performance**
+   - Use React.memo for pure components
+   - Implement useMemo and useCallback for expensive operations
+   - Avoid unnecessary re-renders with proper dependency arrays
+   - Use virtual lists for long scrollable content
+
+3. **Security**
+   - Validate all user inputs on both client and server
+   - Use Meteor methods with proper checks
+   - Implement proper user authentication and authorization
+   - Never trust client-side data
+   - Example:
+     ```js
+     Meteor.methods({
+       'players.vote'(playerId) {
+         check(playerId, String);
+         
+         // Ensure user is logged in
+         if (!this.userId) {
+           throw new Meteor.Error('not-authorized');
+         }
+         
+         Players.update(playerId, {
+           $inc: { score: 1 }
+         });
+       }
+     });
+     ```
+
+4. **Testing**
+   - Write unit tests for utility functions
+   - Create integration tests for Meteor methods
+   - Implement component tests for UI elements
+   - Use Meteor's built-in testing capabilities
+
+## Leaderboard Application Specifics
+
+1. **Data Model**
+   - Create a `Players` collection with fields for name, score, and creation date
+   - Implement proper indexing for sorting by score
+   - Example schema:
+     ```js
+     Players.schema = new SimpleSchema({
+       name: { type: String },
+       score: { type: Number, defaultValue: 0 },
+       createdAt: { type: Date, defaultValue: new Date() },
+       createdBy: { type: String, optional: true }
+     });
+     ```
+
+2. **Core Features**
+   - Player addition form with validation
+   - Sortable leaderboard display
+   - Voting/scoring mechanism
+   - Basic user authentication
+
+3. **UI/UX**
+   - Responsive design for all screen sizes
+   - Clear visual hierarchy for the leaderboard
+   - Intuitive voting/scoring controls
+   - Proper loading and error states
+
+## Official Documentation References
+
+- [MeteorJS Documentation](https://docs.meteor.com/) - Official guide for Meteor 3.2
+- [React Documentation](https://react.dev/) - Official React 19 documentation
+- [MongoDB Documentation](https://docs.mongodb.com/) - For database queries and indexing
+- [SimpleSchema](https://github.com/Meteor-Community-Packages/meteor-simple-schema) - For schema validation
+- [React Hooks API Reference](https://react.dev/reference/react) - For React hooks usage
+- [Meteor Guide](https://guide.meteor.com/) - Best practices for Meteor applications
+- [React DevTools](https://react.dev/learn/react-developer-tools) - For debugging React components
+- [Meteor APM](https://galaxy-guide.meteor.com/apm-getting-started.html) - For application performance monitoring
+
+## Version Control
+
+1. **Git Workflow**
+   - Use feature branches for new features
+   - Create pull requests for code review
+   - Write meaningful commit messages
+   - Keep commits focused and atomic
+
+2. **Code Reviews**
+   - Review code for adherence to these standards
+   - Check for performance issues
+   - Ensure proper error handling
+   - Verify security practices are followed
+
+---
+
+These rules are designed to ensure consistency, maintainability, and high quality throughout the development process. Refer to this document regularly and update it as needed as the project evolves.

@@ -1,0 +1,76 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "allowJs": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "/*": [
+        "./*"
+      ],
+      "meteor/mongo": [
+        "/home/storyteller/.meteor/packages/mongo/2.1.1/web.browser/local_collection_driver.js",
+        "/home/storyteller/.meteor/packages/mongo/2.1.1/web.browser/collection/collection.js",
+        "/home/storyteller/.meteor/packages/mongo/2.1.1/web.browser/asynchronous_cursor.js",
+        "/home/storyteller/.meteor/packages/mongo/2.1.1/web.browser/doc_fetcher.js",
+        "/home/storyteller/.meteor/packages/mongo/2.1.1/web.browser/mongo_common.js",
+        "/home/storyteller/.meteor/packages/mongo/2.1.1/web.browser/mongo_connection.js",
+        "/home/storyteller/.meteor/packages/mongo/2.1.1/web.browser/mongo_driver.js",
+        "/home/storyteller/.meteor/packages/mongo/2.1.1/web.browser/mongo_utils.js",
+        "/home/storyteller/.meteor/packages/mongo/2.1.1/web.browser/oplog_observe_driver.js",
+        "/home/storyteller/.meteor/packages/mongo/2.1.1/web.browser/collection/collection_utils.js",
+        "/home/storyteller/.meteor/packages/mongo/2.1.1/web.browser/collection/methods_async.js",
+        "/home/storyteller/.meteor/packages/mongo/2.1.1/web.browser/collection/methods_index.js",
+        "/home/storyteller/.meteor/packages/mongo/2.1.1/web.browser/collection/methods_replication.js",
+        "/home/storyteller/.meteor/packages/mongo/2.1.1/web.browser/collection/methods_sync.js"
+      ],
+      "meteor/reactive-var": [
+        "/home/storyteller/.meteor/packages/reactive-var/1.0.13/web.browser/reactive-var.js"
+      ],
+      "meteor/es5-shim": [
+        "/home/storyteller/.meteor/packages/es5-shim/4.8.1/web.browser/client.js",
+        "/home/storyteller/.meteor/packages/es5-shim/4.8.1/web.browser/console.js",
+        "/home/storyteller/.meteor/packages/es5-shim/4.8.1/web.browser/cordova.js",
+        "/home/storyteller/.meteor/packages/es5-shim/4.8.1/web.browser/export_globals.js",
+        "/home/storyteller/.meteor/packages/es5-shim/4.8.1/web.browser/import_globals.js"
+      ],
+      "meteor/ecmascript": [
+        "/home/storyteller/.meteor/packages/ecmascript/0.16.10/web.browser/ecmascript.js"
+      ],
+      "meteor/shell-server": [
+        "/home/storyteller/.meteor/packages/shell-server/0.6.1/web.browser/main.js",
+        "/home/storyteller/.meteor/packages/shell-server/0.6.1/web.browser/shell-server.js"
+      ],
+      "meteor/hot-module-replacement": [
+        "/home/storyteller/.meteor/packages/hot-module-replacement/0.5.4/web.browser/hot-api.js",
+        "/home/storyteller/.meteor/packages/hot-module-replacement/0.5.4/web.browser/client.js",
+        "/home/storyteller/.meteor/packages/hot-module-replacement/0.5.4/web.browser/server.js"
+      ],
+      "meteor/react-meteor-data": [
+        "/home/storyteller/.meteor/packages/react-meteor-data/3.0.3/web.browser/index.js",
+        "/home/storyteller/.meteor/packages/react-meteor-data/3.0.3/web.browser/suspense/index.js"
+      ],
+      "meteor/accounts-password": [
+        "/home/storyteller/.meteor/packages/accounts-password/3.1.0/web.browser/password_client.js",
+        "/home/storyteller/.meteor/packages/accounts-password/3.1.0/web.browser/email_templates.js",
+        "/home/storyteller/.meteor/packages/accounts-password/3.1.0/web.browser/password_server.js"
+      ],
+      "meteor/accounts-base": [
+        "/home/storyteller/.meteor/packages/accounts-base/3.1.0/web.browser/client_main.js",
+        "/home/storyteller/.meteor/packages/accounts-base/3.1.0/web.browser/accounts_client.js",
+        "/home/storyteller/.meteor/packages/accounts-base/3.1.0/web.browser/accounts_common.js",
+        "/home/storyteller/.meteor/packages/accounts-base/3.1.0/web.browser/accounts_server.js",
+        "/home/storyteller/.meteor/packages/accounts-base/3.1.0/web.browser/server_main.js"
+      ]
+    }
+  },
+  "typeAcquisition": {
+    "include": [
+      "meteor"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    ".meteor"
+  ]
+}
