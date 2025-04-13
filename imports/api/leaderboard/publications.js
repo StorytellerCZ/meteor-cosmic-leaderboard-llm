@@ -50,4 +50,40 @@ if (Meteor.isServer) {
       }
     );
   });
+
+  // NEW
+  // Publish the total score of all items
+  Meteor.publish('totalScore', function() {
+    let initializing = true;
+    let totalScore = 0;
+  
+    const handle = LeaderboardCollection.find({}, { fields: { score: 1 } }).observeChanges({
+      added: (id, fields) => {
+        if (!initializing) {
+          totalScore += fields.score || 0;
+          this.changed('totalScore', 'total', { totalScore });
+        }
+      },
+      changed: (id, fields) => {
+        const oldDocument = LeaderboardCollection.findOne(id, { fields: { score: 1 } });
+        const oldScore = oldDocument?.score || 0;
+        totalScore += (fields.score || 0) - oldScore;
+        this.changed('totalScore', 'total', { totalScore });
+      },
+      removed: (id) => {
+        const oldDocument = LeaderboardCollection.findOne(id, { fields: { score: 1 } });
+        totalScore -= oldDocument?.score || 0;
+        this.changed('totalScore', 'total', { totalScore });
+      },
+    });
+  
+    initializing = false;
+    this.added('totalScore', 'total', { totalScore: LeaderboardCollection.find().fetch().reduce((sum, item) => sum + (item.score || 0), 0) });
+    this.ready();
+  
+    this.onStop(() => {
+      handle.stop();
+    });
+  });
+
 }
