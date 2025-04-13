@@ -1,0 +1,10 @@
+{
+    "public": {
+        "title": "Cosmic Leaderboard"
+    },
+    "packages": {
+        "accounts-password": {
+            "argon2": true
+        }
+    }
+}

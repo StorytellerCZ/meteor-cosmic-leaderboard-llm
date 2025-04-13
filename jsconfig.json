@@ -61,6 +61,37 @@
         "/home/storyteller/.meteor/packages/accounts-base/3.1.0/web.browser/accounts_common.js",
         "/home/storyteller/.meteor/packages/accounts-base/3.1.0/web.browser/accounts_server.js",
         "/home/storyteller/.meteor/packages/accounts-base/3.1.0/web.browser/server_main.js"
+      ],
+      "meteor/jam:pub-sub": [
+        "/home/storyteller/.meteor/packages/jam_pub-sub/0.4.0/web.browser/client.js",
+        "/home/storyteller/.meteor/packages/jam_pub-sub/0.4.0/web.browser/server.js",
+        "/home/storyteller/.meteor/packages/jam_pub-sub/0.4.0/web.browser/lib/cache.js",
+        "/home/storyteller/.meteor/packages/jam_pub-sub/0.4.0/web.browser/lib/config.js",
+        "/home/storyteller/.meteor/packages/jam_pub-sub/0.4.0/web.browser/lib/ddp.js",
+        "/home/storyteller/.meteor/packages/jam_pub-sub/0.4.0/web.browser/lib/mongo.js",
+        "/home/storyteller/.meteor/packages/jam_pub-sub/0.4.0/web.browser/lib/publish.js",
+        "/home/storyteller/.meteor/packages/jam_pub-sub/0.4.0/web.browser/lib/subs-cache.js",
+        "/home/storyteller/.meteor/packages/jam_pub-sub/0.4.0/web.browser/lib/subscribe.js",
+        "/home/storyteller/.meteor/packages/jam_pub-sub/0.4.0/web.browser/lib/utils/client.js",
+        "/home/storyteller/.meteor/packages/jam_pub-sub/0.4.0/web.browser/lib/utils/server.js",
+        "/home/storyteller/.meteor/packages/jam_pub-sub/0.4.0/web.browser/lib/utils/shared.js"
+      ],
+      "meteor/jam:offline": [
+        "/home/storyteller/.meteor/packages/jam_offline/0.4.1/web.browser/client.js",
+        "/home/storyteller/.meteor/packages/jam_offline/0.4.1/web.browser/server.js",
+        "/home/storyteller/.meteor/packages/jam_offline/0.4.1/web.browser/lib/bc.js",
+        "/home/storyteller/.meteor/packages/jam_offline/0.4.1/web.browser/lib/config.js",
+        "/home/storyteller/.meteor/packages/jam_offline/0.4.1/web.browser/lib/ddp.js",
+        "/home/storyteller/.meteor/packages/jam_offline/0.4.1/web.browser/lib/idb.js",
+        "/home/storyteller/.meteor/packages/jam_offline/0.4.1/web.browser/lib/load.js",
+        "/home/storyteller/.meteor/packages/jam_offline/0.4.1/web.browser/lib/method.js",
+        "/home/storyteller/.meteor/packages/jam_offline/0.4.1/web.browser/lib/mongo.js",
+        "/home/storyteller/.meteor/packages/jam_offline/0.4.1/web.browser/lib/subscribe.js",
+        "/home/storyteller/.meteor/packages/jam_offline/0.4.1/web.browser/lib/sync.js",
+        "/home/storyteller/.meteor/packages/jam_offline/0.4.1/web.browser/lib/users.js",
+        "/home/storyteller/.meteor/packages/jam_offline/0.4.1/web.browser/lib/utils/client.js",
+        "/home/storyteller/.meteor/packages/jam_offline/0.4.1/web.browser/lib/utils/server.js",
+        "/home/storyteller/.meteor/packages/jam_offline/0.4.1/web.browser/lib/utils/shared.js"
       ]
     }
   },

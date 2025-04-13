@@ -6,5 +6,5 @@ export { LeaderboardCollection } from './collection';
 // Import methods for both client and server
 import './methods';
 
-// Import publications - the file itself has server-side guards
-import './publications';
+// Publications have been moved to server/main.js
+// This is in accordance with Meteor 3.2 best practices

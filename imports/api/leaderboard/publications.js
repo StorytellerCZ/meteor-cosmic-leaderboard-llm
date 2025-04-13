@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { LeaderboardCollection } from './collection';
 
+
 // Only run this code on the server
 if (Meteor.isServer) {
   /**
