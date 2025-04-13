@@ -70,7 +70,7 @@ const AddItemForm = ({ onAddItem }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (newItemName.trim() === '') {
+    if (newItemNames.trim() === '') {
       setError('Name cannot be empty');
       return;
     }
@@ -90,7 +90,7 @@ const AddItemForm = ({ onAddItem }) => {
       <input
         type="text"
         placeholder="Enter celestial body name"
-        value={newItemName}
+        value={NewItemName}
         onChange={(e) => setNewItemName(e.target.value)}
       />
       <button type="submit">Add to Galaxy</button>
